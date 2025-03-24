@@ -3,7 +3,7 @@ services:
   catalog-service:
     depends_on:
       - luckycardshop
-    image: "catalog-service"
+    image: "catalog-service:0.0.1-SNAPSHOT"
     container_name: "catalog-service"
     ports:
       - 9001:9001
