@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  catalog-service:
+    depends_on:
+      - luckycardshop
+    image: "catalog-service"
+    container_name: "catalog-service"
+    ports:
+      - 9001:9001
+    environment:
+      - BPL_JVM_THREAD_COUNT=50
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://luckycardshop:5432/luckycardshopdb_catalog
+      - SPRING_PROFILES_ACTIVE=testdata
+  luckycardshop:
+    image: "postgres:latest"
+    container_name: "luckycardshop"
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=luckycardshopdb_catalog
