@@ -24,3 +24,9 @@ services:
       - POSTGRES_PASSWORD=password
     volumes:
       - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+  
+  luckycardshop-redis:
+    image: "redis:7.0"
+    container_name: "luckycardshop-redis"
+    ports:
+      - 6379:6379
