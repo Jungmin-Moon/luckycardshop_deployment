@@ -1,0 +1,40 @@
+kind: Deployment
+metadata:
+  name: luckycardshop-redis
+  labels:
+    db: luckycardshop-redis
+spec:
+  selector:
+    matchLabels:
+      db: luckycardshop-redis
+  template:
+    metadata:
+      labels:
+        db: luckycardshop-redis
+    spec:
+      containers:
+        - name: luckycardshop-redis
+          image: redis:7.2
+          resources:
+            requests:
+              cpu: 100m
+              memory: 50Mi
+            limits:
+              cpu: 200m
+              memory: 100Mi
+              
+---
+
+kind: Service
+metadata:
+  name: luckycardshop-redis
+  labels:
+    db: luckycardshop-redis
+spec:
+  type: ClusterIP
+  selector:
+    db: luckycardshop-redis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
