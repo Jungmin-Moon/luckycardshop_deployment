@@ -1,3 +1,4 @@
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-config
@@ -8,6 +9,7 @@ data:
     CREATE DATABASE luckycardshopdb_catalog;
     CREATE DATABASE luckycardshop_order;
 
+---
 
 apiVersion: apps/v1
 kind: Deployment
