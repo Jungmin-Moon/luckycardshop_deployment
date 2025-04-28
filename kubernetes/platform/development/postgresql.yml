@@ -34,8 +34,8 @@ spec:
               value: user
             - name: POSTGRES_PASSWORD
               value: password 
-            - name: POSTGRES_DB
-              value: luckycardshopdb_catalog
+            #- name: POSTGRES_DB
+            #  value: luckycardshopdb_catalog
           resources:
             requests:
               cpu: 100m
