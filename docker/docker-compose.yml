@@ -41,7 +41,9 @@ services:
   luckycardshop-keycloak:
     image: quay.io/keycloak/keycloak
     container_name: "luckycardshop-keycloak"
-    command: start-dev
+    command: start-dev --import-realm
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import
     environment:
       - KEYCLOAK_ADMIN=user
       - KEYCLOAK_ADMIN_PASSWORD=password
